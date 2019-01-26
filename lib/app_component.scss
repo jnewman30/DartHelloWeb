@@ -1,7 +1,9 @@
 @import "package:angular_components/css/material/material";
 @import "package:angular_components/material_button/mixins";
+@import "package:angular_components/material_icon/mixins";
+@import "package:angular_components/material_list/mixins";
 
-$mdc-card-image: 'http://material-components-web.appspot.com/images/16-9.jpg';
+$mdc-card-image: "http://material-components-web.appspot.com/images/16-9.jpg";
 
 @mixin colorize($selector, $color) {
     $raised: $selector + "[raised]";
@@ -17,9 +19,9 @@ $mdc-card-image: 'http://material-components-web.appspot.com/images/16-9.jpg';
 :host {
     font-family: Roboto,"Helvetica Neue",Arial,Helvetica,sans-serif;
 
-    @include colorize("material-button.red", $mat-red);
-    @include colorize("material-button.blue", $mat-blue);
-    @include colorize("material-button.green", $mat-green);
+    @include colorize("material-button[red]", $mat-red);
+    @include colorize("material-button[blue]", $mat-blue);
+    @include colorize("material-button[green]", $mat-green);
     @include colorize("material-fab.red", $mat-red);
     @include colorize("material-fab.blue", $mat-blue);
     @include colorize("material-fab.green", $mat-green);
@@ -27,6 +29,12 @@ $mdc-card-image: 'http://material-components-web.appspot.com/images/16-9.jpg';
     @include raised-button("material-button.raised-color-example", $mat-blue);
     @include raised-button(".raised-example");
     @include button-dense-theme(".dense-example");
+}
+
+@include inline-material-list(':not(.stretched-list)');
+
+[flex] {
+    justify-content: space-between;
 }
 
 material-button,
@@ -59,9 +67,16 @@ h2 {
 
 [title] {
     @include mat-font-title;
+
     margin: 0;
 }
 
+header {
+    [title] {
+        color: $mat-white;
+        margin: 0;
+    }
+}
 .dark-theme {
     color: $mat-white;
     background: $mat-grey-800;
@@ -73,4 +88,13 @@ h2 {
 
 [flex] {
     justify-content: space-between;
+}
+
+[menu] {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+[main-content] {
+    margin: 1rem;
 }

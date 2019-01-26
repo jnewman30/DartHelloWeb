@@ -1,19 +1,53 @@
-<shit></shit>
-
-<div card class="mdc-card mdc-card--outlined">
-    <h3 title>Card 1</h3>
-    <div class="mdc-card__actions">
-        <material-button class="red">One</material-button>
-        <material-button class="green">Two</material-button>
-        <material-button class="blue">Three</material-button>
+<header class="material-header shadow">
+    <div class="material-header-row">
+        <!-- This button will toggle (open/close) the drawer -->
+        <material-button icon class="material-drawer-button" (trigger)="drawer.toggle()">
+            <material-icon icon="menu"></material-icon>
+        </material-button>
+        <!-- Other header info goes here -->
+        <h1 title>Hello Web</h1>
     </div>
-</div>
+</header>
 
-<div card class="dark-theme mdc-card mdc-card--outlined">
-    <h3 title>Card 2</h3>
-    <div class="mdc-card__actions">
-        <material-button raised class="red">One</material-button>
-        <material-button raised class="green">Two</material-button>
-        <material-button raised class="blue">Three</material-button>
+<material-drawer persistent #drawer="drawer">
+    <div>
+        <!-- Drawer content goes here -->
+        <section>
+            <h2>Menu</h2>
+            <material-list menu>
+                <div group>
+                    <material-list-item (trigger)="selectItem('red')">
+                        Red
+                    </material-list-item>
+                    <material-list-item (trigger)="selectItem('green')">
+                        Green
+                    </material-list-item>
+                </div>
+                <material-list-item (trigger)="selectItem('coral')">
+                    Coral
+                </material-list-item>
+                <material-list-item (trigger)="selectItem('mediumOrchid')">
+                    MediumOrchid
+                </material-list-item>
+            </material-list>
+        </section>
     </div>
-</div>
+</material-drawer>
+<material-content>
+    <div main-content>
+        <material-fab raised class="blue">
+            <material-icon icon="add"></material-icon>
+        </material-fab>
+
+        <section>
+            <div flex>
+                <div card class="dark-theme" darkTheme>
+                    <h3 title>Card 1</h3>
+                    <material-button red>One</material-button>
+                    <material-button green>Two</material-button>
+                    <material-button blue>Three</material-button>
+                </div>
+            </div>
+        </section>
+    </div>
+</material-content>
